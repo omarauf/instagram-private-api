@@ -36,6 +36,14 @@ export interface MediaInfoResponseItemsItem {
   caption: MediaInfoResponseCaption;
   can_viewer_save: boolean;
   organic_tracking_token: string;
+  video_versions: VideoMedia[];
+}
+interface VideoMedia {
+  type: number;
+  width: number;
+  height: number;
+  url: string;
+  id: string;
 }
 export interface MediaInfoResponseImage_versions2 {
   candidates: MediaInfoResponseCandidatesItem[];

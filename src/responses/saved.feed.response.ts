@@ -57,6 +57,8 @@ export interface SavedFeedResponseMedia {
   carousel_media_count?: number;
   carousel_media?: SavedFeedResponseCarouselMediaItem[];
   location?: SavedFeedResponseLocation;
+  clips_metadata: any;
+  product_type: any;
 }
 export interface SavedFeedResponseImage_versions2 {
   candidates: SavedFeedResponseCandidatesItem[];
