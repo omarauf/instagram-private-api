@@ -705,12 +705,13 @@ export class MediaRepository extends Repository {
    * save("2524149952724070925_1829855275", ["17865977635619975"]) save media to 1 collection
    * save("2524149952724070925_1829855275", ["17865977635619975", "17845997638619928"]) save media to 2 collection
    */
-  public async save(mediaId: string, collection_ids?: string[]) {
+  public async save(mediaId: string, added_collection_ids?: string[], removed_collection_ids?: string[]) {
     const { body } = await this.client.request.send({
       url: `/api/v1/media/${mediaId}/save/`,
       method: 'POST',
       form: this.client.request.sign({
-        added_collection_ids: collection_ids ? JSON.stringify(collection_ids) : undefined,
+        added_collection_ids: added_collection_ids ? JSON.stringify(added_collection_ids) : undefined,
+        removed_collection_ids: removed_collection_ids ? JSON.stringify(removed_collection_ids) : undefined,
         _uuid: this.client.state.uuid,
         _uid: this.client.state.cookieUserId,
         _csrftoken: this.client.state.cookieCsrfToken,
